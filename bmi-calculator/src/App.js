@@ -60,8 +60,8 @@ function App() {
           </div>
         </form>
         <div className="result">
-          <h2>Your BMI: {bmi}</h2>
-          <h3>Status: {status}</h3>
+          <h3>Your BMI: <span>{bmi}</span></h3>
+          <h3>Status: <span>{status}</span></h3>
         </div>
       </div>
       <Footer />
