@@ -1,6 +1,7 @@
 import './App.css';
 import Footer from './Components/Footer';
 import Nav from './Components/Nav';
+import React, { useState } from 'react';
 
 
 function App() {
@@ -40,20 +41,30 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <div className="container">
+        <div className='header'>
+          <h2>BMI Calculator</h2>
+        </div>
+        <form onSubmit={calcBmi}>
+          <div className="input-grp">
+            <label>Weight (in kg)</label>
+            <input type="text" value={weight} placeholder='Enter Weight' onChange={(e) => setWeight(e.target.value)} />
+          </div>
+          <div className="input-grp">
+            <label>Height (in cm)</label>
+            <input type="text" value={height} placeholder='Enter Height' onChange={(e) => setHeight(e.target.value)} />
+          </div>
+          <div className='btn-container'>
+            <button type="submit" className="btn btn-primary">Calculate</button>
+          </div>
+        </form>
+        <div className="result">
+          <h2>Your BMI: {bmi}</h2>
+          <h3>Status: {status}</h3>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
